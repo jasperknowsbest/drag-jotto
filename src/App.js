@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import GuessedWords from "./GuessedWords";
 import Congrats from "./Congrats";
 import { getSecretWord } from "./actions";
+import Input from "./Input";
 
 import "./App.css";
 
@@ -16,10 +17,10 @@ export class UnconnectedApp extends Component {
     return (
       <div className="container">
         <h1>Drag Jotto</h1>
-        <Congrats success={true} />
-        <GuessedWords
-          guessedWords={[{ guessedWord: "train", letterMatchCount: 3 }]}
-        />
+        <div>secret word is {this.props.secretWord}</div>
+        <Congrats success={this.props.success} />
+        <Input />
+        <GuessedWords guessedWords={this.props.guessedWords} />
       </div>
     );
   }
