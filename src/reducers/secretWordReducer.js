@@ -1,3 +1,5 @@
+import { actionTypes } from "../actions";
+
 /**
  * @function secretWordReducer
  * @param {array} state - Array of guessed queens.
@@ -6,5 +8,10 @@
  */
 
 export default (state = null, action) => {
-  return state;
+  switch (action.type) {
+    case actionTypes.SET_SECRET_WORD:
+      return action.payload;
+    default:
+      return state;
+  }
 };
